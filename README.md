@@ -6,39 +6,34 @@ Disponivel nos arquivos:
 - codigos.py
 - codigos.sql
 
-Objetivos
-Produção
-- Identificar quais estados são os maiores produtores de cada um dos produtos selecionados
-- Quais métricas de produtos tem maior influencia em cada estado (congelado/resfriado) e (com osso / sem osso)
+## Objetivos
+
+- Identificar quais estados são os maiores produtores e compradores de cada um dos produtos selecionados.
+- Quais paises são importadores dos produtos selecionados, com suas preferencias e sazonalidades.
+- Quais métricas de produtos tem maior influencia em cada estado ou papis (congelado/resfriado) e (com osso / sem osso).
 - Recortes de faixas de periodo de datas, identificar sazonalidades e acumulados total, por ano e por mês.
-Aplicação em negócio
-- Varejo e atacado identificar oportunidades para compra desses produtos, por estado, periodo e métricas avaliadas, expandindo carteira de fornecedores e gerando economia.
-- Frigorificos
-- Fazendas ao identificar sazonalidades, podem tentar vender seus rebanhos para estados com menor produção a um preço maior. 
-Comercio Nacional
-- 
-- 
-Aplicação em negócio
-- 
-- 
-Comercio Internacional
-- 
-- 
-Aplicação em negócio
-- 
-- 
+
+## Aplicação em negócio
+
+- Varejo e atacado identificar oportunidades para compra desses produtos, por estado, periodo e métricas avaliadas, expandindo carteira de fornecedores e reduzindo custos.
+- Frigorificos ao identificar estados que não possuem produção própria podem criar estratégias de vendas para expandir distribuição e lucro.
+- Fazendas ao identificar sazonalidades, podem tentar vender seus rebanhos para estados com menor produção a um preço maior, além de identificar os melhores periodos para venda, com maior consumo e menor produção e disponibilidade. 
+- Frigorificos podem calcular métricas para identificar seu market share nacional, internacional, e de produção, seu crescimento e suas tendencias.
+- Frigorificos, exportadoras brasileiras e importadoras estrangeiras podem identificar sazonalidades, preferencias, volume de comercialização e tendencias para elaborar estratégias de vendas para paises estrangeiros.
+- Frigorificos podem identificar estados que terceirizam suas produções.
+
+## Requisitos
 
 
+## Techstack
+- SQL (postgresql)
+- Python (pandas)
+- PowerBI
 
-
-Requisitos
-
-
-
-Banco de dados utilizado no projeto:
+### Banco de dados utilizado no projeto:
 - Supabase (PostgreSQL)
 
-Etapa 1 - Download dos dados em csv
+## Etapa 1 - Download dos dados em csv
 
 Os dados foram baixados do sistema PGA-SIGSIF oficial do Ministério da Agricultura e Pecuária(MAPA)
 Abaixo os links:
@@ -47,7 +42,7 @@ https://sistemas.agricultura.gov.br/pga_sigsif/pages/view/sigsif/relatorioproduc
 
 Os arquivos foram baixados em csv.
 
-Etapa 2 - ETL para tratamento dos dados em Python(pandas) e carregamento no banco de dados do Supabase(PostgreSQL)
+## Etapa 2 - ETL para tratamento dos dados em Python(pandas) e carregamento no banco de dados do Supabase(PostgreSQL)
 
 Os dados foram carregados no VScode e então foram realizados os tratamentos de:
 - Carregamento dos csv e criação dos dataframes
@@ -68,7 +63,7 @@ Informações em:
 - codigo_etl.py
 - codigo_etl.sql
 
-Etapa 3 - SQL para modelagem e enriquecimento de dados epara elaboração das views que serão usadas no PowerBI
+## Etapa 3 - SQL para modelagem e enriquecimento de dados epara elaboração das views que serão usadas no PowerBI
 
 Total de produtos distintos na base (População) = 274
 Total de produtos escolhidos para análise (Amostra) = 4
@@ -96,7 +91,10 @@ Códigos em:
 - comercio_nacional.sql
 - comercio_internacional.sql
 
-Etapa 4 - Estruturação de dashboards e apresentação em PowerBI
+## Etapa 4 - Estruturação de dashboards e apresentação em PowerBI
+
+
+
 
 
 ## Dicionarios de dados no PowerBI (OutPut)
@@ -105,37 +103,35 @@ Etapa 4 - Estruturação de dashboards e apresentação em PowerBI
 
 | Campo | Tipo | Descrição |
 | :--- | :--- | :--- |
-| `data` | Date | Data considerando mês e ano da produção |
+| `data` | Date | Data considerando mês e ano |
 | `uf` | String | Estado da localização da produção |
 | `produto` | String | Produto produzido |
 | `total_produzido`| NUMERIC(21, 3)| Quantidade produzida |
 | `ossos`| String| Presença de ossos sendo "Com osso" e "Sem osso" |
-| `temperatura`| String | Temperatura do produto sendo "Congelado", "Resfriado" e "Ambiente" |
-
-
-### Dicionário de Dados: Tabela Fato `sif_comercio_internacional_bovino`
-
-| Campo | Tipo | Descrição |
-| :--- | :--- | :--- |
-| `data` | Date | Data considerando mês e ano da produção |
-| `uf` | String | Estado da localização da produção |
-| `produto` | String | Produto produzido |
-| `total_produzido`| NUMERIC(21, 3)| Quantidade produzida |
-| `ossos`| String| Presença de ossos sendo "Com osso" e "Sem osso" |
-| `temperatura`| String | Temperatura do produto sendo "Congelado", "Resfriado" e "Ambiente" |
-
+| `temperatura`| String | Temperatura do produto sendo "Congelado" e "Resfriado" |
 
 ### Dicionário de Dados: Tabela Fato `sif_comercio_nacional_bovino`
 
 | Campo | Tipo | Descrição |
 | :--- | :--- | :--- |
-| `data` | Date | Data considerando mês e ano da produção |
-| `uf` | String | Estado da localização da produção |
-| `produto` | String | Produto produzido |
-| `total_produzido`| NUMERIC(21, 3)| Quantidade produzida |
+| `data` | Date | Data considerando mês e ano |
+| `uf_destino` | String | Estado destino da comercialização |
+| `produto` | String | Produto comercializado |
+| `qtd_comercializacao`| NUMERIC(21, 3)| Quantidade comercializada |
+| `operador`| String | Comercialização realizada para estados ou para estabelecimentos SIF |
 | `ossos`| String| Presença de ossos sendo "Com osso" e "Sem osso" |
-| `temperatura`| String | Temperatura do produto sendo "Congelado", "Resfriado" e "Ambiente" |
+| `temperatura`| String | Temperatura do produto sendo "Congelado" e "Resfriado" |
 
+### Dicionário de Dados: Tabela Fato `sif_comercio_internacional_bovino`
+
+| Campo | Tipo | Descrição |
+| :--- | :--- | :--- |
+| `data` | Date | Data considerando mês e ano |
+| `pais_destino` | String | País destino da comercialização |
+| `produto` | String | Produto comercializado |
+| `qtd_comercializacao`| NUMERIC(21, 3)| Quantidade comercializada |
+| `ossos`| String| Presença de ossos sendo "Com osso" e "Sem osso" |
+| `temperatura`| String | Temperatura do produto sendo "Congelado" e "Resfriado" |
 
 ### Dicionário de Dados: Tabela Dimensão `dim_calendario_br`
 
@@ -146,7 +142,6 @@ Etapa 4 - Estruturação de dashboards e apresentação em PowerBI
 | `nome_uf` | String | Sigla do estado |
 | `regiao`| String | Região do país |
 | `nome_uf_mapa_formas`| String | Nome do estado sem acentos, para mapa de formas PowerBI |
-
 
 ### Dicionário de Dados: Tabela Dimensão `dim_estados`
 
