@@ -96,7 +96,7 @@ Códigos em:
 - Criação das dimensões de calendário e geográfico para mapas
 - Criação de medidas e organização em pastas
 - Criação de um Top 3 em cada dashboard
-- Utilização do 3-30-300 para melhorar o fluxo de visualização do dashboards pelo tomador de decisão
+- Utilização da estrutura 3-30-300 para melhorar o fluxo de visualização do dashboards pelo tomador de decisão
 - Tooltips para enriquecer as informações durante a navegação
 - Criação de filtro expansivel por botão
 - Navegação por dashboards utilizando botões
