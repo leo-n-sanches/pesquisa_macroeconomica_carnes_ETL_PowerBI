@@ -93,18 +93,18 @@ Códigos em:
 
 ## Etapa 4 - Estruturação de dashboards e apresentação em PowerBI
 
-Criação das dimensões de calendário e geográfico para mapas
-Criação de medidas e organização em pastas
-Criação de um Top 3 em cada dashboard
-Utilização do 3-30-300 para melhorar o fluxo de visualização do dashboards pelo tomador de decisão
-Tooltips para enriquecer as informações durante a navegação
-Criação de filtro expansivel por botão
-Navegação por dashboards utilizando botões
-Criação de medidas de: YoY, % to total, % de variação do total, volume do total, volume de diferença do total
-Dashboard estratégico de volume por ano, por mês e acumulado por mês para identificar sazonalidade mensal
-Tabela de matriz para navegação detalhada pelos dados.
-Tabela de mapa para visualização de paises que realizam a compra e seus volumes
-Gráfico de barras(horizontal) para identificar e visualizar volumes e diferenças entre estados ou paises.
+- Criação das dimensões de calendário e geográfico para mapas
+- Criação de medidas e organização em pastas
+- Criação de um Top 3 em cada dashboard
+- Utilização do 3-30-300 para melhorar o fluxo de visualização do dashboards pelo tomador de decisão
+- Tooltips para enriquecer as informações durante a navegação
+- Criação de filtro expansivel por botão
+- Navegação por dashboards utilizando botões
+- Criação de medidas de: YoY, % to total, % de variação do total, volume do total, volume de diferença do total
+- Dashboard estratégico de volume por ano, por mês e acumulado por mês para identificar sazonalidade mensal
+- Tabela de matriz para navegação detalhada pelos dados.
+- Tabela de mapa para visualização de paises que realizam a compra e seus volumes
+- Gráfico de barras(horizontal) para identificar e visualizar volumes e diferenças entre estados ou paises.
 
 ## Dicionarios de dados no PowerBI (OutPut)
 
